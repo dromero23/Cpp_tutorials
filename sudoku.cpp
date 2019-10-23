@@ -2,6 +2,11 @@
 #include <fstream>
 #include <cmath>
 
+
+/*
+This program uses bruteforce to solve the sudoku,will work only with easy,medium sudoku's (to test with medium sudoku's)
+Created specifically to transition from a command line to a working GTK GUI.
+*/
 using namespace std;
 
 static int sudoku[9][9]={0};
