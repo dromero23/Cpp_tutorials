@@ -17,7 +17,7 @@ bool trySquare(int number, int column, int row);
 void printSudoku(void);
 
 int main(int argc, char **argv){
-    bool isSolved=1;
+    bool isSolved=1; //used to breakout of the while loop if the sudoku was not able to solve at least one  cell in the iteration.
     bool filledRow[9]={0};
     int emptyCount =0;
     fstream myfile;
@@ -106,6 +106,14 @@ bool tryColumn(int number, int row){
 }
 
 bool trySquare(int number, int column, int row){
+    /*
+    You want to floor the value so you may start from the upper left corner of the square
+    Example, if you are currently at 1,4 then the start column would be 0 and the start row is 3, (0,3)
+    Calculation: 
+    column/3 -> truncate/floor the decimal and multiply by 3
+    Same with row
+    */
+    
     int startColumn= static_cast<int>(floor(column/3))*3;
     int startRow = static_cast<int>(floor(row/3))*3;
     for (int col=0;col<3;col++)
